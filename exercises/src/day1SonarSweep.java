@@ -109,11 +109,28 @@ public class day1SonarSweep {
                 2575, 2573, 2574, 2568, 2576, 2583};
 
         int increasedCounter = 0;
+        int decreasedCounter = 0;
         for (int index = 1; index < dataset.length; index++) {
             if (dataset[index] > dataset[index - 1]) {
                 increasedCounter++;
+            } else if (dataset[index] < dataset[index - 1]) {
+                decreasedCounter++;
             }
         }
+
         System.out.println("increased counter " + increasedCounter);
+        System.out.println("decreased counter " + decreasedCounter);
+        System.out.println("length " + dataset.length);
+
+        int averageCounter = 0;
+
+        for (int threeIndex = 0; threeIndex < dataset.length-3; threeIndex++) {
+            int firstAverage = dataset[threeIndex] + dataset[threeIndex + 1] + dataset[threeIndex + 2];
+            int secondAverage = dataset[threeIndex + 1] + dataset[threeIndex + 2] + dataset[threeIndex + 3];
+            if (firstAverage < secondAverage) {
+                averageCounter++;
+            }
+        }
+        System.out.println("Avarge counter:" + averageCounter);
     }
 }
